@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 22:07:54 by vroussea          #+#    #+#             */
-/*   Updated: 2016/01/27 21:30:21 by vroussea         ###   ########.fr       */
+/*   Updated: 2016/01/27 21:35:02 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	get_next_line(int const fd, char **line)
 		if (ret == -1)
 			return (-1);
 	}
-	*line = ()
+	*line = (!ft_strchr(buff, '\n') ? : );
 	return (ret ? 1 : 0);
 }
