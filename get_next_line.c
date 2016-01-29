@@ -14,18 +14,19 @@
 
 int	get_next_line(int const fd, char **line)
 {
-	static char	buff;
+	static char	*buff;
 	int			ret;
 
+	if (BUFF_SIZE <= 0)
+		return (-1);
 	if (!(buf = (char *)ft_memalloc(BUFF_SIZE)))
 		return (-1);
-	ret = -1;
 	while (!ft_strchr(buff, '\n') && ret != -1)
 	{
 		ret = read(fd, buff, BUFF_SIZE);
 		if (ret == -1)
 			return (-1);
 	}
-	*line = (!ft_strchr(buff, '\n') ? : );
+	*line = (!ft_strchr(buff, '\n') ? ft_strsub(): );
 	return (ret ? 1 : 0);
 }
