@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 17:45:14 by vroussea          #+#    #+#             */
-/*   Updated: 2016/01/30 19:24:02 by vroussea         ###   ########.fr       */
+/*   Updated: 2016/02/01 23:06:42 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include "libft/libft.h"
-# define BUFF_SIZE 15
+# define BUFF_SIZE 10000000
 
 typedef struct		s_file
 {
