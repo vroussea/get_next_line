@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 22:07:54 by vroussea          #+#    #+#             */
-/*   Updated: 2016/02/10 19:11:53 by vroussea         ###   ########.fr       */
+/*   Updated: 2016/02/10 19:16:38 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,5 @@ int				get_next_line(int const fd, char **line)
 	if ((ret = reader(ret, crt, fd)) == -1)
 		return (-1);
 	cleaner(crt, ret, line);
-	return ((ret && (ft_strlen(crt->str) > 0)) ? 1 : 0);
+	return (ret && (ft_strlen(crt->str) > 0));
 }
