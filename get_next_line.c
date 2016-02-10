@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 22:07:54 by vroussea          #+#    #+#             */
-/*   Updated: 2016/02/08 13:51:42 by vroussea         ###   ########.fr       */
+/*   Updated: 2016/02/10 16:47:20 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static int		reader(int ret, t_file *crt, int fd)
 	char	*buff;
 	char	*tmp;
 
-	if (BUFF_SIZE <= 0 || !(buff = (char *)ft_memalloc(BUFF_SIZE)))
+	if (BUFF_SIZE <= 0 || !(buff = (char *)ft_memalloc(BUFF_SIZE + 1)))
 		return (-1);
 	while (!ft_strchr(crt->str, '\n') && ret > 0)
 	{
