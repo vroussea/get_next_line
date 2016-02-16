@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 22:07:54 by vroussea          #+#    #+#             */
-/*   Updated: 2016/02/16 14:51:54 by vroussea         ###   ########.fr       */
+/*   Updated: 2016/02/16 16:24:48 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static int		cleaner(t_file *crt, int ret)
 	int		strlen;
 	char	*tmpstring;
 
-	strlen = ft_strlen(crt->str);
 	if (ret != 0)
 	{
 		tmpstring = ft_strsub(crt->str,
@@ -28,6 +27,9 @@ static int		cleaner(t_file *crt, int ret)
 		ft_strdel(&(crt->str));
 		crt->str = tmpstring;
 	}
+	strlen = ft_strlen(crt->str);
+	//if (crt->fd == 0)
+	//	return (0);
 	if (ret == 0 && crt && crt->prev)
 	{
 		tmp = crt->prev;
@@ -36,8 +38,6 @@ static int		cleaner(t_file *crt, int ret)
 		ft_memdel((void **)&crt);
 		crt = NULL;
 	}
-	if (crt->fd == 0)
-		return (0);
 	return (strlen);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 17:39:40 by vroussea          #+#    #+#             */
-/*   Updated: 2016/02/16 12:55:41 by vroussea         ###   ########.fr       */
+/*   Updated: 2016/02/16 15:44:27 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	int		result2;
 	char	*line;
 
+	ft_putendl("test");
 	if (argc >= 2 && argc <= 4)
 	{
 		fd = open(argv[1], O_RDONLY);
