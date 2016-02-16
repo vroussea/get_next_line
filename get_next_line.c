@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 22:07:54 by vroussea          #+#    #+#             */
-/*   Updated: 2016/02/16 16:24:48 by vroussea         ###   ########.fr       */
+/*   Updated: 2016/02/16 16:28:47 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ static int		cleaner(t_file *crt, int ret)
 		crt->str = tmpstring;
 	}
 	strlen = ft_strlen(crt->str);
-	//if (crt->fd == 0)
-	//	return (0);
 	if (ret == 0 && crt && crt->prev)
 	{
 		tmp = crt->prev;
