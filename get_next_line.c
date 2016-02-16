@@ -6,22 +6,20 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 22:07:54 by vroussea          #+#    #+#             */
-/*   Updated: 2016/02/10 19:16:38 by vroussea         ###   ########.fr       */
+/*   Updated: 2016/02/16 14:51:54 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdlib.h>
 
-static void		cleaner(t_file *crt, int ret, char **line)
+static int		cleaner(t_file *crt, int ret)
 {
 	t_file	*tmp;
+	int		strlen;
 	char	*tmpstring;
 
-	if (crt->str)
-		*line = (!ft_strchr(crt->str, '\n') ?
-				ft_strsub(crt->str, 0, ft_strlen(crt->str)) :
-				ft_strsub(crt->str, 0, ft_strchr(crt->str, '\n') - crt->str));
+	strlen = ft_strlen(crt->str);
 	if (ret != 0)
 	{
 		tmpstring = ft_strsub(crt->str,
@@ -38,6 +36,9 @@ static void		cleaner(t_file *crt, int ret, char **line)
 		ft_memdel((void **)&crt);
 		crt = NULL;
 	}
+	if (crt->fd == 0)
+		return (0);
+	return (strlen);
 }
 
 static t_file	*new_node(int const fd)
@@ -103,6 +104,7 @@ int				get_next_line(int const fd, char **line)
 {
 	static t_file	*start = NULL;
 	t_file			*crt;
+	int				strlen;
 	int				ret;
 
 	if (start == NULL)
@@ -111,6 +113,10 @@ int				get_next_line(int const fd, char **line)
 	crt = test_node(fd, start);
 	if ((ret = reader(ret, crt, fd)) == -1)
 		return (-1);
-	cleaner(crt, ret, line);
-	return (ret && (ft_strlen(crt->str) > 0));
+	if (crt->str)
+		*line = (!ft_strchr(crt->str, '\n') ?
+				ft_strsub(crt->str, 0, ft_strlen(crt->str)) :
+				ft_strsub(crt->str, 0, ft_strchr(crt->str, '\n') - crt->str));
+	strlen = cleaner(crt, ret);
+	return ((ret > 0) || (strlen > 0));
 }
